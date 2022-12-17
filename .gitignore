@@ -1,2 +1,4 @@
 #Allure
-tests/allure-results
+/allure-results
+/allure/
+
