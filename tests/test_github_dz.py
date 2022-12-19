@@ -1,6 +1,6 @@
 import allure
 from allure_commons.types import Severity
-from selene import browser
+from selene.support.shared import browser
 from selene.support import by
 from selene.support.conditions import be
 
@@ -12,6 +12,7 @@ from selene.support.conditions import be
 @allure.story("Пример теста без шагов")
 @allure.link("https://github.com", name="Testing")
 def test_github():
+    browser.config.driver.maximize_window()
     browser.open_url("https://github.com")
 
     browser.element(".header-search-wrapper").click()
@@ -32,6 +33,7 @@ def test_github():
 @allure.link("https://github.com", name="Testing")
 def test_dynamic_steps():  # с помощью with
     with allure.step("Открываем главную страницу"):
+        browser.config.driver.maximize_window()
         browser.open_url("https://github.com")
 
     with allure.step("Ищем репозиторий"):
@@ -64,6 +66,7 @@ def test_decorator_steps(): # c помощью степ
 
 @allure.step("Открываем главную страницу")
 def open_main_page():
+    browser.config.driver.maximize_window()
     browser.open_url("https://github.com")
 
 
